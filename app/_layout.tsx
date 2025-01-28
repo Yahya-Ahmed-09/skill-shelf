@@ -1,39 +1,35 @@
-import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
-import { useFonts } from 'expo-font';
-import { Stack } from 'expo-router';
-import * as SplashScreen from 'expo-splash-screen';
-import { StatusBar } from 'expo-status-bar';
-import { useEffect } from 'react';
-import 'react-native-reanimated';
+// import { Stack } from "expo-router";
+// import { useFonts } from 'expo-font';
+// import * as SplashScreen from 'expo-splash-screen';
+// import { useEffect } from 'react';
+import { Provider, useDispatch } from "react-redux";
+import store from "@/Redux/store";
+import MainRootLayout from "./MainRootLayout";
 
-import { useColorScheme } from '@/hooks/useColorScheme';
 
-// Prevent the splash screen from auto-hiding before asset loading is complete.
-SplashScreen.preventAutoHideAsync();
+// SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
-  const colorScheme = useColorScheme();
-  const [loaded] = useFonts({
-    SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
-  });
 
-  useEffect(() => {
-    if (loaded) {
-      SplashScreen.hideAsync();
-    }
-  }, [loaded]);
+  // const [loaded, error] = useFonts({
+  //   'monitoricaReg': require('../assets/fonts/monitoricaRg.ttf'),
+  //   'monitoricaBold': require('../assets/fonts/monitoricaBd.ttf'),
+  //   'poetsen': require('../assets/fonts/poetsenOne.ttf'),
+  //   'montserratMed': require('../assets/fonts/Montserrat-Medium.ttf'),
+  //   'montserratBold': require('../assets/fonts/Montserrat-Bold.ttf'),
+  // })
 
-  if (!loaded) {
-    return null;
-  }
+  // useEffect(() => {
+  //   if (loaded || error) {
+  //     SplashScreen.hideAsync();
+  //   }
+  // }, [loaded, error]);
 
-  return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="+not-found" />
-      </Stack>
-      <StatusBar style="auto" />
-    </ThemeProvider>
-  );
+  // if (!loaded && !error) {
+  //   return null;
+  // }
+  return <Provider store={store}>
+  
+    <MainRootLayout />
+  </Provider>;
 }

@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "495571122421",
+    "project_id": "skill-shelf",
+    "storage_bucket": "skill-shelf.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:495571122421:android:f438e979ee7af69b0a2dbc",
+        "android_client_info": {
+          "package_name": "com.yahyaahmed69.SkillShelf"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "495571122421-rpl9lvj1uisi2ul2pmdc0v7g9c345ifl.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.yahyaahmed69.SkillShelf",
+            "certificate_hash": "c70c10e93dca67c428f81a57502fdae7ca8e731c"
+          }
+        },
+        {
+          "client_id": "495571122421-lbono0lgajjh01r53md65ojijmf6ak2n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAWccAah6NSnqXtRPlYuIMlTG_d-ni8nLo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "495571122421-lbono0lgajjh01r53md65ojijmf6ak2n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
