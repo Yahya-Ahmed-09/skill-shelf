@@ -3,7 +3,7 @@ import { Stack } from "expo-router";
 import { useFonts } from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen';
 import { useEffect, useState } from 'react';
-import { Provider, useDispatch } from "react-redux";
+import { Provider, useDispatch, useSelector } from "react-redux";
 import store from "@/Redux/store";
 import { loadUserData } from '@/Redux/Actions/LoadUserDataAction';
 import { loadSectionData } from '@/Redux/Actions/loadSectionDataAction';
@@ -13,6 +13,8 @@ SplashScreen.preventAutoHideAsync();
 const MainRootLayout = () => {
     const dispatch = useDispatch()
     const [isDataLoaded, setIsDataLoaded] = useState(false);
+    const {sectionData} = useSelector((state:any)=>state.loadSectionData);
+    const {userData} = useSelector((state:any)=>state.loadUserData);
     const [loaded, error] = useFonts({
         'monitoricaReg': require('../assets/fonts/monitoricaRg.ttf'),
         'monitoricaBold': require('../assets/fonts/monitoricaBd.ttf'),

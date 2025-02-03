@@ -9,6 +9,13 @@ import { useDispatch } from 'react-redux'
 import { loadSectionData } from '@/Redux/Actions/loadSectionDataAction'
 import LoadingModal from './LoadingModal'
 import { bottomSheetStatus } from '@/Redux/Actions/BottomSheetStatus'
+import MediaData from './MediaData'
+import ExperienceData from './ExperienceData'
+import EducationData from './EducationData'
+import ProjectsData from './ProjectsData'
+import TestimonialData from './TestimonialData'
+import CertificationsData from './CertificationsData'
+import SkillsData from './SkillsData'
 
 interface Props {
     title: string,
@@ -24,7 +31,7 @@ const Data: React.FC<Props> = ({ title, handleDelete, loader }) => {
         console.log(item)
       }, [])
     
-    
+console.log(title)
     return (
         <View style={styles.container}>
             <View style={styles.topContainer}>
@@ -43,7 +50,16 @@ const Data: React.FC<Props> = ({ title, handleDelete, loader }) => {
                 <Text style={{ fontFamily: 'montserratMed' }}>Add New {title}</Text>
                 <Ionicons name="add-circle-outline" size={26} color={Colors.Primary} />
             </TouchableOpacity>
-
+                {
+                    title === 'Media' ? <MediaData /> :
+                    title === 'Experiences' ? <ExperienceData /> :
+                    title === 'Educations' ? <EducationData /> :
+                    title === 'Projects' ? <ProjectsData /> :
+                    title === 'Testimonial' ? <TestimonialData /> :
+                    title === 'Certifications' ? <CertificationsData /> :
+                    title === 'Skills' ? <SkillsData /> :
+                    null
+                }
             <LoadingModal visibility={loader} />
         </View>
     )

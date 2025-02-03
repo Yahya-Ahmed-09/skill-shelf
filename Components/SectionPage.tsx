@@ -16,7 +16,8 @@ const SectionPage = ({setIsSectionPage}:any) => {
   const dispatch = useDispatch()
 
   const userSectionData = useSelector((state: any) => state.loadSectionData.sectionData)
-  const data = Object.keys(userSectionData)
+  const data = Object.keys(userSectionData).sort()
+
 
   const handleDelete = async(item:any)=>{
     setIsLoading(true)

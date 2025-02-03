@@ -11,6 +11,7 @@ import LoadingModal from './LoadingModal';
 import { useDispatch } from 'react-redux';
 import { loadSectionData } from '@/Redux/Actions/loadSectionDataAction';
 import Toast from 'react-native-toast-message';
+import showToast from '@/Functions/showToast';
 
 interface Props { 
     closeModal: any
@@ -25,21 +26,7 @@ const SelectSections:React.FC<Props> = ({closeModal}) => {
         if (!allSections) return [];
         return sectionData.filter((item) => !selectedSection?.includes(item.name));
       }, [sectionData, selectedSection]);
-      const showToast = () => {
-        Toast.show({
-            type: 'info',
-            text1: 'The Section is already added',
-            visibilityTime: 1500,
-            position: 'bottom',
-            topOffset: 20, 
-            bottomOffset: 20,
-            text1Style: {
-                fontSize: hp(1.4),
-                fontFamily: 'monitoricaBold',
-                textAlign: 'center',
-            }
-        });
-    }
+      
     const handleSelectSection = async(item:string) => {
         setIsloading(true)
         try {
@@ -54,7 +41,7 @@ const SelectSections:React.FC<Props> = ({closeModal}) => {
                     const data = docSnap.data()
                     const repeated = Object.keys(data).find((title:any)=> title === item)
                     if(repeated){
-                        showToast()
+                        showToast('The Section is already added', 'info')
                         return 
                     }else{
                         await updateDoc(docRef, {

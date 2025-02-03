@@ -10,6 +10,9 @@ import { getAuth, GoogleAuthProvider, signInWithCredential } from 'firebase/auth
 
 GoogleSignin.configure({
   webClientId: '495571122421-lbono0lgajjh01r53md65ojijmf6ak2n.apps.googleusercontent.com',
+  // googleServicePlistPath: 'google-services.json',
+  
+  // offlineAccess: true
 });
 
 export const googleSignIn = (): any => async (dispatch: Dispatch) => {
@@ -60,7 +63,7 @@ export const googleSignIn = (): any => async (dispatch: Dispatch) => {
       phoneNumber: user.phoneNumber,
       photoUrl: user.photoURL,
     });
-
+    
     // Dispatch success action
     dispatch({
       type: SIGN_IN_SUCCESS,

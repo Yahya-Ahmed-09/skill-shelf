@@ -14,11 +14,11 @@
       },
       "oauth_client": [
         {
-          "client_id": "495571122421-rpl9lvj1uisi2ul2pmdc0v7g9c345ifl.apps.googleusercontent.com",
+          "client_id": "495571122421-hpce9fh8h1a42rdrtujdmjf0u58ujsg5.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.yahyaahmed69.SkillShelf",
-            "certificate_hash": "c70c10e93dca67c428f81a57502fdae7ca8e731c"
+            "certificate_hash": "6a73040a07da352923c4ff48d6b5ae77823846d2"
           }
         },
         {

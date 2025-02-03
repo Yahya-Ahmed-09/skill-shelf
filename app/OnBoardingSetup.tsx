@@ -11,11 +11,14 @@ import { googleSignOut } from '@/Redux/Actions/GoogleSignOutAction'
 import auth from '@react-native-firebase/auth'
 import AddSections from '@/Components/AddSections'
 import BottomSheetComponent from '@/Components/BottomSheetComponent'
+import { loadSectionData } from '@/Redux/Actions/loadSectionDataAction'
+import LoadingModal from '@/Components/LoadingModal'
+import { loadUserData } from '@/Redux/Actions/LoadUserDataAction'
 
 
 const { width, height } = Dimensions.get('window');
 const OnBoardingSetup = () => {
-    
+    const [loading, setLoading] = useState(false)
     const scrollViewRef = useRef<ScrollView>(null);
     const [currentIndex, setCurrentIndex] = useState(0)
     const [keyboardVisible, setKeyboardVisible] = useState(false);
@@ -42,7 +45,11 @@ const OnBoardingSetup = () => {
 
 
     useEffect(() => {
-        
+        setLoading(true)
+        setTimeout(()=>{
+            setLoading(false)
+        }, 2000)
+        dispatch(loadSectionData(), loadUserData())
         const backAction = ()=>{
             Alert.alert('Hold on!', 'Are you sure you want to go back?', [
                 {
@@ -78,6 +85,7 @@ const OnBoardingSetup = () => {
             keyboardDidHideListener.remove();
             backHandler.remove()
         };
+        
     }, [])
     return (
 
@@ -108,11 +116,15 @@ const OnBoardingSetup = () => {
                     <TouchableOpacity activeOpacity={0.7} style={styles.nextBtn} onPress={() => handleScrollToNext(currentIndex + 1)}>
                         <Text style={styles.nextBtnText}>{currentIndex == 0 ? 'Create Your Shelf' : 'Next'}</Text>
                     </TouchableOpacity>
+
+                    {/* <TouchableOpacity activeOpacity={0.7} style={styles.nextBtn} onPress={handleSignOut}>
+                        <Text style={styles.nextBtnText}>{currentIndex == 0 ? 'logout' : 'Next'}</Text>
+                    </TouchableOpacity> */}
                 </View>
             </View>
             )}
             {isOpen && (<BottomSheetComponent />)}
-            
+            <LoadingModal visibility={loading} />
         </View>
 
     )
