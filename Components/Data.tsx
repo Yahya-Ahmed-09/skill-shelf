@@ -28,10 +28,8 @@ const Data: React.FC<Props> = ({ title, handleDelete, loader }) => {
     const dispatch = useDispatch()
     const handleSnapPress = useCallback((item:string) => {
         dispatch(bottomSheetStatus(true, item))
-        console.log(item)
       }, [])
     
-console.log(title)
     return (
         <View style={styles.container}>
             <View style={styles.topContainer}>

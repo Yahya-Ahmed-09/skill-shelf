@@ -53,7 +53,6 @@ const SectionPage = ({setIsSectionPage}:any) => {
       await dispatch(loadSectionData())
     }
     fetchData()
-    // console.log(userSectionData)
   },[!isLoading])
   return (
     <View style={{ width: '100%', height: '90%' }}>
@@ -62,7 +61,7 @@ const SectionPage = ({setIsSectionPage}:any) => {
         <ScrollView showsVerticalScrollIndicator={false} style={{flex:1, height: '80%'}}>
         {data.map((item, index) => (
           <View key={index} style={{ marginBottom: 20 }}>
-            <Data loader={isLoading} handleDelete={handleDelete} length={data.length} title={item} />
+            <Data loader={isLoading} handleDelete={()=> handleDelete(item)} length={data.length} title={item} />
           </View>
         ))}
         </ScrollView>

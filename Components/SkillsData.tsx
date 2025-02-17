@@ -13,11 +13,11 @@ const SkillsData = () => {
   const { sectionData } = useSelector((state: any) => state.loadSectionData)
   const dispatch = useDispatch()
 
-  const handleDelete = async(item: any) => {
+  const handleDelete = async (item: any) => {
     setLoading(true)
     await delSectionData(item, 'Skills')
-    setTimeout(()=>{
-        setLoading(false)
+    setTimeout(() => {
+      setLoading(false)
     }, 1000)
     dispatch(loadSectionData())
   }
@@ -29,14 +29,14 @@ const SkillsData = () => {
           data={sectionData.Skills}
           horizontal={true}
           showsHorizontalScrollIndicator={false}
-          contentContainerStyle={{ gap: 10,marginTop: 10 }}
+          contentContainerStyle={{ gap: 10, marginTop: 10 }}
           renderItem={({ item, index }) => (
             <>
-            <View key={index} style={styles.skillItem}>
-              <Text style={styles.skillText}>{item}</Text>
-              
-            </View>
-            <TouchableOpacity onPress={() => handleDelete(item)} style={styles.deleteIcon}>
+              <View key={index} style={styles.skillItem}>
+                <Text style={styles.skillText}>{item}</Text>
+
+              </View>
+              <TouchableOpacity onPress={() => handleDelete(item)} style={styles.deleteIcon}>
                 <Ionicons name="remove-circle-sharp" size={24} color='red' />
               </TouchableOpacity>
             </>

@@ -14,6 +14,8 @@ import BottomSheetComponent from '@/Components/BottomSheetComponent'
 import { loadSectionData } from '@/Redux/Actions/loadSectionDataAction'
 import LoadingModal from '@/Components/LoadingModal'
 import { loadUserData } from '@/Redux/Actions/LoadUserDataAction'
+import Theme from '@/Components/Theme'
+import ContactInfo from '@/Components/ContactInfo'
 
 
 const { width, height } = Dimensions.get('window');
@@ -100,6 +102,8 @@ const OnBoardingSetup = () => {
                 <StartScreen />
                 <SelectName />
                 <AddSections setIsOpen={setIsOpen}/>
+                <ContactInfo />
+                <Theme />
 
             </ScrollView>
             {!keyboardVisible && (

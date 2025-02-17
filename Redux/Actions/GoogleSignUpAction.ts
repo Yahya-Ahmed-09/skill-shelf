@@ -62,6 +62,7 @@ export const googleSignIn = (): any => async (dispatch: Dispatch) => {
       email: user.email,
       phoneNumber: user.phoneNumber,
       photoUrl: user.photoURL,
+      theme: 'Arctic Mist'
     });
     
     // Dispatch success action

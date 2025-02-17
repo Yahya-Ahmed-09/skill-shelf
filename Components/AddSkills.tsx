@@ -61,7 +61,7 @@ const handleSave = () => {
       <Text style={styles.Heading}>Add Skills</Text>
       <View style={styles.topContainer}>
         <TouchableOpacity style={styles.inputContainer}>
-          <TextInput value={skillVal} onChangeText={handleChangeSkill}   placeholder='Add your Skills' />
+          <TextInput style={styles.textInput} value={skillVal} onChangeText={handleChangeSkill}   placeholder='Add your Skills' />
         </TouchableOpacity>
 
         <TouchableOpacity onPress={() => handleAddSkill(skillVal)} style={styles.addButton}>
@@ -134,8 +134,14 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: Colors.Light,
     borderRadius: 15,
-    padding: 20,
+    padding: 0,
     width: '100%'
+  },
+  textInput:{
+    height: hp(6),
+    paddingLeft: 20,
+    fontFamily: 'montserratMed',
+    fontSize: hp(1.4)
   },
   addButton:{
     padding: 15,

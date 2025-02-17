@@ -62,7 +62,6 @@ const AddExperience = ({closeModal}:Props) => {
     }
 
     const finalData = checkbox ? continueData : pastData
-    console.log(finalData)
     if(isAnyValueNull(finalData)){
       showToast('Please fill all the fields', 'error')
       setLoading(false)
@@ -105,15 +104,15 @@ const AddExperience = ({closeModal}:Props) => {
    
       <View style={styles.inputContainer}>
         <TouchableOpacity style={styles.input}>
-          <TextInput onChangeText={newCompanyName => setCompanyName(newCompanyName)} placeholder='Company Name' />
+          <TextInput style={styles.textInput} onChangeText={newCompanyName => setCompanyName(newCompanyName)} placeholder='Company Name' />
         </TouchableOpacity>
 
         <TouchableOpacity style={styles.input}>
-          <TextInput onChangeText={newDesignation => setDesignation(newDesignation)} placeholder='Designation' />
+          <TextInput style={styles.textInput} onChangeText={newDesignation => setDesignation(newDesignation)} placeholder='Designation' />
         </TouchableOpacity>
 
         <TouchableOpacity style={styles.input}>
-          <TextInput onChangeText={newDescription => setDescription(newDescription)} placeholder='Description' />
+          <TextInput style={styles.textInput} onChangeText={newDescription => setDescription(newDescription)} placeholder='Description' />
         </TouchableOpacity>
       </View>
       <View style={{width: '100%', alignItems: 'center'}}>
@@ -178,8 +177,14 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: Colors.Light,
     borderRadius: 15,
-    padding: 20,
+    padding: 0,
     width: '100%'
+  },
+  textInput:{
+    height: hp(6),
+    paddingLeft: 20,
+    fontFamily: 'montserratMed',
+    fontSize: hp(1.4)
   },
   button: {
     backgroundColor: Colors.Primary,

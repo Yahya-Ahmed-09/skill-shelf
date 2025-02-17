@@ -62,7 +62,6 @@ const AddEducation = ({closeModal}:Props) => {
     }
 
     const finalData = checkbox ? continueData : pastData
-    console.log(finalData)
     if(isAnyValueNull(finalData)){
       showToast('Please fill all the fields', 'error')
       setLoading(false)
@@ -105,15 +104,15 @@ const AddEducation = ({closeModal}:Props) => {
    
       <View style={styles.inputContainer}>
         <TouchableOpacity style={styles.input}>
-          <TextInput onChangeText={newField => setField(newField)} placeholder='Field ex. Computer Science, Mathematics, etc.' />
+          <TextInput style={styles.textInput} onChangeText={newField => setField(newField)} placeholder='Field ex. Computer Science, Mathematics, etc.' />
         </TouchableOpacity>
 
         <TouchableOpacity style={styles.input}>
-          <TextInput onChangeText={newInstitue => setInstitute(newInstitue)} placeholder='Institute Name' />
+          <TextInput style={styles.textInput} onChangeText={newInstitue => setInstitute(newInstitue)} placeholder='Institute Name' />
         </TouchableOpacity>
 
         <TouchableOpacity style={styles.input}>
-          <TextInput onChangeText={newBoard => setBoard(newBoard)} placeholder='Board Name' />
+            <TextInput style={styles.textInput} onChangeText={newBoard => setBoard(newBoard)} placeholder='Board Name' />
         </TouchableOpacity>
       </View>
       <View style={{width: '100%', alignItems: 'center'}}>
@@ -178,8 +177,14 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: Colors.Light,
     borderRadius: 15,
-    padding: 20,
+    padding: 0,
     width: '100%'
+  },
+  textInput:{
+    height: hp(6),
+    paddingLeft: 20,
+    fontFamily: 'montserratMed',
+    fontSize: hp(1.4)
   },
   button: {
     backgroundColor: Colors.Primary,

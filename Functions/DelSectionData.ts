@@ -11,7 +11,6 @@ const delSectionData = async(item:any, sectionName:string) => {
             await updateDoc(docRef,{
                 [sectionName]: arrayRemove(item)
             })
-            console.log("deleted",item, sectionName)
         }
 
     } catch (error) {

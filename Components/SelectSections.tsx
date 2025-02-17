@@ -58,14 +58,11 @@ const SelectSections:React.FC<Props> = ({closeModal}) => {
                 setSelectedSection([item]);
                 closeModal()
                 
-                // Optional: Add onSnapshot for real-time updates separately
                 const unsubscribe = onSnapshot(docRef, (doc) => {
                     if (doc.exists()) {
-                        // console.log('Document updated:', doc.data());
                     }
                 });
     
-                // Properly handle unsubscribe with useEffect or component lifecycle
                 return () => unsubscribe();
             }
         } catch (error) {

@@ -97,13 +97,13 @@ const BottomSheetComponent = () => {
                                    hp(0), width: wp(100)}}>
       <Animated.View style={[styles.bottomSheet, {transform: [{translateY: slide}]}]}>
             {value === 'addSection' ? <SelectSections closeModal={closeModal} /> :
-            value === 'Projects' ? <AddProjects /> :
+            value === 'Projects' ? <AddProjects closeModal={closeModal} /> :
             value === 'Experiences' ? <AddExperience closeModal={closeModal} />  :
             value === 'Media' ? <AddMedia closeModal={closeModal} /> :
             value === 'Skills' ? <AddSkills closeModal={closeModal} /> :
-            value === 'Certifications' ? <AddCertifications /> :
+            value === 'Certifications' ? <AddCertifications closeModal={closeModal} /> :
             value === 'Educations' ? <AddEducation closeModal={closeModal}/> :
-            value === 'Testimonial' ? <AddTestimonials /> :
+            value === 'Testimonial' ? <AddTestimonials closeModal={closeModal} /> :
             null}
       </Animated.View>
       </Pressable>

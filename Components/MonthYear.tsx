@@ -53,7 +53,6 @@ const MonthYear:React.FC<MonthYearProps> = ({
 
   }
 useEffect(()=>{
-  console.log(checkbox)
 },[checkbox])
   return (
     <View>
